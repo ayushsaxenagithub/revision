@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "cstdlib": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "iostream": "cpp",
+        "cmath": "cpp"
     }
 }
