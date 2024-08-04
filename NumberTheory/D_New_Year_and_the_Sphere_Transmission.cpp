@@ -1,0 +1,1 @@
+// https://codeforces.com/blog/entry/97623#:~:text=This%20just%20means%20ax,is%20known%20as%20Bezout's%20Theorem.
