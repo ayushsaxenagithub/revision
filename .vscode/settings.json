@@ -3,6 +3,7 @@
         "cstdlib": "cpp",
         "bitset": "cpp",
         "iostream": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "graph_dijkstra's": "c"
     }
 }

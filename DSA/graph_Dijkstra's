@@ -1,0 +1,62 @@
+#include<bits/stdc++.h>
+#define int long long 
+
+using namespace std;
+
+const int inf = 1e17;
+
+vector<vector<int>> g = { { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
+                        { 4, 0, 8, 0, 0, 0, 0, 11, 0 },
+                        { 0, 8, 0, 7, 0, 4, 0, 0, 2 },
+                        { 0, 0, 7, 0, 9, 14, 0, 0, 0 },
+                        { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
+                        { 0, 0, 4, 14, 10, 0, 2, 0, 0 },
+                        { 0, 0, 0, 0, 0, 2, 0, 1, 6 },
+                        { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
+                        { 0, 0, 2, 0, 0, 0, 6, 7, 0 } };;
+
+void dijkstra(int src) {
+    int n = g.size(); // Fixed this line
+	vector<int> dist(n, inf);
+	priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> q;
+	q.push({0, src});
+	dist[src] = 0;
+	while(!q.empty()) {
+		int current_vertex = q.top().second;
+        int weight = q.top().first;
+        q.pop();
+
+        if (weight > dist[current_vertex]) continue;
+
+		for(int i = 0; i < g[current_vertex].size(); ++i) {
+            if(g[current_vertex][i] != 0) {
+                int wt = g[current_vertex][i] + weight;
+                if(dist[i] > wt) {
+                    dist[i] = wt;
+                    q.push({wt, i});
+                }
+            }
+        }
+	}
+	for(int i = 0 ; i < n ; ++i) {
+		cout << i << ":" << dist[i] << endl;
+	}
+	return;
+}
+			
+
+signed main() {
+// 	int n, e; // e->edges
+// 	cin >> n >> e;
+// 	g.resize(n, vector<int>(n, -1));
+// 	for(int i = 0; i < e; ++i) {
+// 		int u, v, w;
+// 		cin >> u >> v >> w;
+// 		g[u][v] = w;
+// 		g[v][u] = w;
+// 	}
+// 	int src;
+// 	cin >> src;
+	dijkstra(0);
+	return 0;
+}
